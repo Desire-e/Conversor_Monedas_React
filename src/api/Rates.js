@@ -3,7 +3,7 @@ import axios from 'axios';
 // url base
 let url = `https://api.exchangerate.host/`; 
 // access key
-let key = import.meta.env.API_KEY;
+let key = import.meta.env.VITE_API_KEY;
 
 /*
 Use the base URL and your API key to make a request. For example, fetching the latest USD and EUR rates:

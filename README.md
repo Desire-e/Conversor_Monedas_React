@@ -55,12 +55,12 @@ Este proyecto usa una API con clave de acceso. La clave se gestiona mediante var
 
 2. Edita `.env` y sustituye `tu_clave_aqui` por tu propia clave de [ExchangeRate API](https://exchangerate.host/):
 ```
-   API_KEY=tu_clave_aqui
+   VITE_API_KEY=tu_clave_aqui
 ```
  
 3. Esta variable se usa internamente en `Coins.js` y `Rates.js`:
 ```js
-   let key = import.meta.env.API_KEY;
+   let key = import.meta.env.VITE_API_KEY;
 ```
  
 El archivo `.env` está incluido en `.gitignore`, por lo que la clave real nunca se sube a GitHub. Solo se sube `.env.example`, que sirve de plantilla.

@@ -4,7 +4,7 @@ import axios from 'axios';
 // url base
 let url = `https://api.exchangerate.host/`; 
 // access key
-let key = import.meta.env.API_KEY;
+let key = import.meta.env.VITE_API_KEY;
 
 /* 
 /list
