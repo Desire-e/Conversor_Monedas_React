@@ -4,7 +4,7 @@ Aplicación React que permite convertir cantidades entre diferentes divisas en t
 
 ## Demo
 
-[Ver proyecto desplegado](https://TU_USUARIO.github.io/TU_REPO)
+[Ver proyecto desplegado](https://desire-e.github.io/Conversor_Monedas_React/)
 
 ## Características
 
@@ -96,7 +96,7 @@ A → B = rate(B) / rate(A)
  
 ## Autor
 
-Desire-e — [GitHub](https://github.com/TU_USUARIO)
+Desire-e — [GitHub](https://github.com/Desire-e)
  
 ## Licencia
  
