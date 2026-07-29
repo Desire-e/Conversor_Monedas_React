@@ -32,6 +32,10 @@ async function getCoins(){
         // Petición
         const response = await axios.get(endpoint);
 
+        // Evita almacenar errores y causar caché rota  
+        if (!response.data.success) {
+            throw new Error(response.data.error?.info || "Error al obtener las monedas");
+        }
 
         // Obtiene los clave-valor del objeto JSON "currencies" 
         // que contiene como atributos las monedas permitidas
@@ -45,6 +49,7 @@ async function getCoins(){
         const coins = entries.map(([key, value]) => {
             return { simbolo: key, nombre: value };
         });
+
 
         return coins;
     } 

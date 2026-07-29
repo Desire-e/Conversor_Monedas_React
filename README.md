@@ -65,9 +65,23 @@ Este proyecto usa una API con clave de acceso. La clave se gestiona mediante var
  
 El archivo `.env` está incluido en `.gitignore`, por lo que la clave real nunca se sube a GitHub. Solo se sube `.env.example`, que sirve de plantilla.
  
-> **Importante:** la clave usada es de un plan gratuito con límites. Evita hacer llamadas innecesarias a la API (por eso se usa `localStorage` y `useRef` para evitar llamadas duplicadas).
+> **Importante:** la clave usada es de un plan gratuito con límites. Evita hacer llamadas innecesarias a la API (por eso se usa `localStorage` y `useRef` para evitar llamadas duplicadas). 
 > 
 > **Sobre el despliegue en GitHub Pages:** al ser una app 100% frontend, la clave queda visible en el JavaScript compilado del sitio público, aunque no esté en el repositorio. El uso de `.env` protege el código fuente y el historial de commits, no el sitio ya desplegado.
+
+## Limitación: cuota de la API
+ 
+El plan gratuito de [ExchangeRate API (apilayer)](https://exchangerate.host/) permite solo **100 peticiones al mes** en total. El endpoint de tasas de cambio (`/live`) consume esta cuota en cada carga sin caché válida, por lo que es fácil agotarla con varias visitas o recargas.
+ 
+**Si ves el error `429 (Too Many Requests)` en la consola del navegador y el resultado de la conversión aparece como `NaN`:**
+ 
+- Significa que se ha alcanzado el límite mensual de peticiones de la API.
+- La lista de monedas (`/list`) puede seguir funcionando con normalidad aunque esto ocurra, ya que no comparte la misma cuota que el endpoint de tasas (`/live`).
+- La cuota se restablece al iniciar un nuevo mes de facturación.
+- Una vez que la API responde correctamente, los datos se guardan en `localStorage` y no se vuelven a pedir en cada recarga — por lo que, si ya cargó una vez, la demo seguirá funcionando sin nuevas peticiones para ese usuario/navegador.
+
+Si esta demo pública deja de funcionar por este motivo, es un problema de la cuota de la API gratuita, no del código del proyecto. **Aconsejo que lo pruebe en local con su propia clave**.
+
 
 ## Lógica de conversión
  

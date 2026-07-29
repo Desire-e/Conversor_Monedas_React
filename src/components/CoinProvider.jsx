@@ -85,8 +85,11 @@ function CoinProvider({ children }) { // children === componentes que heredan el
                     // return;
                 } else {
                     const dataRates = await getRates();
-                    setRates(dataRates);
-                    localStorage.setItem("rates", JSON.stringify(dataRates));
+                    // Evita almacenar errores en caché en lugar de datos reales para no romperla
+                    if (dataRates) {
+                        setRates(dataRates);
+                        localStorage.setItem("rates", JSON.stringify(dataRates));
+                    }
                 }
             }
             catch (error) { console.error(error); }

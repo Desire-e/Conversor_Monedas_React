@@ -30,6 +30,11 @@ async function getRates(){
         
         // Petición
         const response = await axios.get(endpoint);
+        
+        // Evita almacenar errores y causar caché rota  
+        if (!response.data.success) {
+            throw new Error(response.data.error?.info || "Error al obtener las tasas");
+        }
 
         // Obtiene atributo "quotes" del objeto json, 
         // el cual es un objeto con atributos las rates con base USD
