@@ -2,10 +2,12 @@
 
 Aplicación React que permite convertir cantidades entre diferentes divisas en tiempo real, utilizando la API de **ExchangeRate**. Los datos de monedas y tipos de cambio se cargan una única vez y se almacenan en `localStorage` para evitar peticiones innecesarias.
 
+---
 ## Demo
 
 [Ver proyecto desplegado](https://desire-e.github.io/Conversor_Monedas_React/)
 
+---
 ## Características
 
 - Carga la lista completa de monedas soportadas por la API.
@@ -15,6 +17,7 @@ Aplicación React que permite convertir cantidades entre diferentes divisas en t
 - Guarda monedas y tasas en `localStorage` para no repetir peticiones a la API en cada recarga.
 - Comparte los datos globales (monedas y tasas) entre componentes mediante el hook **useContext**, evitando *prop drilling*.
 
+---
 ## Tecnologías
 
 - [React](https://react.dev/)
@@ -23,6 +26,7 @@ Aplicación React que permite convertir cantidades entre diferentes divisas en t
 - [Bootstrap 5](https://getbootstrap.com/) para estilos
 - [ExchangeRate API](https://exchangerate.host/) para monedas y tasas de cambio
 
+---
 ## Empezar en local
  
 1. Clona el repositorio:
@@ -44,6 +48,7 @@ Aplicación React que permite convertir cantidades entre diferentes divisas en t
 
 5. Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
+---
 ## Configuración
 
 Este proyecto usa una API con clave de acceso. La clave se gestiona mediante variables de entorno y **no se sube al repositorio**.
@@ -69,6 +74,7 @@ El archivo `.env` está incluido en `.gitignore`, por lo que la clave real nunca
 > 
 > **Sobre el despliegue en GitHub Pages:** al ser una app 100% frontend, la clave queda visible en el JavaScript compilado del sitio público, aunque no esté en el repositorio. El uso de `.env` protege el código fuente y el historial de commits, no el sitio ya desplegado.
 
+---
 ## Limitación: cuota de la API
  
 El plan gratuito de [ExchangeRate API (apilayer)](https://exchangerate.host/) permite solo **100 peticiones al mes** en total. El endpoint de tasas de cambio (`/live`) consume esta cuota en cada carga sin caché válida, por lo que es fácil agotarla con varias visitas o recargas.
@@ -82,22 +88,7 @@ El plan gratuito de [ExchangeRate API (apilayer)](https://exchangerate.host/) pe
 
 Si esta demo pública deja de funcionar por este motivo, es un problema de la cuota de la API gratuita, no del código del proyecto. **Aconsejo que lo pruebe en local con su propia clave**.
 
-
-## Lógica de conversión
- 
-Las tasas se obtienen siempre con base en USD. Para convertir entre dos monedas cualesquiera (A → B) se aplica la fórmula:
- 
-```
-rate(A) = USD → A
-rate(B) = USD → B
- 
-A → B = rate(B) / rate(A)
-```
- 
+---
 ## Autor
 
 Desire-e — [GitHub](https://github.com/Desire-e)
- 
-## Licencia
- 
-Este proyecto es de uso personal/educativo.
